@@ -1,6 +1,7 @@
 import React from "react";
 import logo from './logo.svg';
 import './App.css';
+import Users from "./Users";
 
 /**
   Challenge: Display all users to the browser
@@ -11,6 +12,7 @@ const users = [
   { name: "Jane Doe", id: 2 },
   { name: "Billy Doe", id: 3 }
 ];
+
 
 // comment this out after completion and uncomment code below it to proceed
 function Child() {
@@ -61,19 +63,29 @@ function Parent() {
 // Comment above code after completion
 
 function App() {
+
+  
+  const myList = users.map((user)=>{
+    return( <Users key = {user.id} name={user.name}/>
+      )
+  })
+  
+
   const [] = React.useState(true);
   return (
     
     <>
+    <h1>JSX is cool</h1>
     
-    <img src={logo} className="App-logo" alt="logo" />
-      <h3>User names</h3>
+    <img src="https://media.istockphoto.com/photos/portrait-of-religious-middle-eastern-young-man-praying-on-yellow-picture-id1387120959?b=1&k=20&m=1387120959&s=170667a&w=0&h=ezuPAONEabLN3vSmWgOEOobwlniFZQEcMs03NkwbKyA=" className="App-logo" alt="logo" />
+      <h3>User names  {myList}</h3>
       <ul></ul>
       <button>Hide Element Below</button>
 
       <div>Toggle Challenge</div>
       <Parent>
       <Child />
+     
     </Parent>
     </>
   );
